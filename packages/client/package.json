@@ -1,0 +1,21 @@
+{
+  "name": "@mega-dao/client",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsup-node",
+    "contracts": "tsx src/contracts.ts"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.7"
+  },
+  "dependencies": {
+    "@clarigen/core": "^1.0.14",
+    "micro-stacks": "^1.2.1",
+    "@mega-dao/core": "*"
+  }
+}
