@@ -1,5 +1,10 @@
 ## Mega DAO Packages
 
+### Packages
+
+- [@mega-dao/core](https://github.com/StacksOS/mega/tree/main/packages/core)
+- [@mega-dao/client](https://github.com/StacksOS/mega/tree/main/packages/client)
+
 The `@mega-dao/client` package provides a TypeScript client for interacting with the Mega DAO smart contracts on the Stacks blockchain. Here's an example of how to import and initialize the `MegaClient` class:
 
 ```typescript
