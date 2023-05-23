@@ -9,6 +9,7 @@ The `@mega-dao/client` package provides a TypeScript client for interacting with
 
 ```typescript
 import { MegaClient } from "@mega-dao/client";
+
 const client = new MegaClient();
 ```
 
