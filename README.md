@@ -25,7 +25,7 @@ const transfer = await client.transfer(
 
 Here's how to use it with `@micro-stacks/react`:
 
-```typescript
+```jsx
 export default function App() {
   const { openContractCall } = useOpenContractCall();
 
@@ -46,7 +46,7 @@ export default function App() {
 
 And with Post Conditions:
 
-```typescript
+```jsx
 import { createFungiblePostCondition } from "@mega-dao/core";
 
 export default function App() {
@@ -70,5 +70,50 @@ export default function App() {
   };
 
   return <button onClick={sendTokens}>Send MEGA</button>;
+}
+```
+
+Submit a proposal with `propose`:
+
+```jsx
+export default function App() {
+  const { openContractCall } = useOpenContractCall();
+
+  const submitProposal = async () => {
+    const submission = await client.propose(
+      "ST248NZ0P20BH3M3ZTM9DS69EMC9G6H3MNR0WS2X.proposal",
+      144 // The block height at which the proposal should start from the current block height
+    );
+    await openContractCall({
+      ...submission,
+    });
+  };
+
+  return <button onClick={submitProposal}>Submit Proposal</button>;
+}
+```
+
+Case your vote with `vote`:
+
+```jsx
+export default function App() {
+  const { openContractCall } = useOpenContractCall();
+
+  const castVote = async (isFor: boolean) => {
+    const vote = await client.vote(
+      isFor,
+      "ST248NZ0P20BH3M3ZTM9DS69EMC9G6H3MNR0WS2X.proposal"
+    );
+    await openContractCall({
+      ...vote,
+    });
+  };
+
+  return (
+    <>
+      <button onClick={() => castVote(true)}>Approve</button>
+      <button onClick={() => castVote(false)}>Reject</button>
+    </>
+  );
 }
 ```
