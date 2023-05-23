@@ -43,11 +43,11 @@ And with Post Conditions:
 ```typescript
 import { createFungiblePostCondition } from "@mega-dao/core";
 
-export default function Page() {
+export default function App() {
   const { openContractCall } = useOpenContractCall();
   const postConditions = createFungiblePostCondition(
     "ST143YHR805B8S834BWJTMZVFR1WP5FFC00V8QTV4",
-    1
+    42
   );
 
   const sendTokens = async () => {
