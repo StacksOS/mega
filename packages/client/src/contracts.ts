@@ -90,8 +90,8 @@ export class MegaClient {
    */
   async isExtension(extension: string) {
     try {
-      const result = await this.client.ro(this.dao.isExtension(extension));
-      return result;
+      const isExtension = await this.client.ro(this.dao.isExtension(extension));
+      return isExtension;
     } catch (err: any) {
       if (err.message === "Invalid c32check string: checksum mismatch") {
         throw createErrorWithStackTrace(
@@ -113,8 +113,8 @@ export class MegaClient {
    */
   async executedAt(extension: string) {
     try {
-      const result = await this.client.ro(this.dao.executedAt(extension));
-      return result;
+      const block = await this.client.ro(this.dao.executedAt(extension));
+      return block;
     } catch (err: any) {
       if (err.message === "Invalid c32check string: checksum mismatch") {
         throw createErrorWithStackTrace(
@@ -296,6 +296,13 @@ export class MegaClient {
     }
   }
 
+  /**
+    •	Get the total STX balance of the vault.
+    * @async
+    •	@returns {Promise} A promise that resolves to the balance of the vault as a bigint.
+    •	@throws {Error} If an error occurs while retrieving the balance.
+    •	@throws {Error} If the provided Stacks address is invalid.
+  */
   async getVaultBalance() {
     try {
       const balance: bigint = await this.client.ro(this.vault.getBalance());
